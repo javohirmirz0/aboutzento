@@ -646,6 +646,7 @@ body:not(.uz) span.lang-uz{display:none}
   nav{padding:0 20px}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .nav-cta{display:none}
   .hero,.page-hero,.page-content,.division-scroll,.unicorn-sec{padding-left:20px;padding-right:20px}
   .two-col{grid-template-columns:1fr;gap:32px}
   .three-col{grid-template-columns:1fr 1fr}
@@ -671,6 +672,8 @@ body:not(.uz) span.lang-uz{display:none}
   .ph-title{font-size:2.2rem}
   h1.hero-h1{font-size:2.8rem}
   .two-col{gap:24px}
+  .four-col{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr!important}
   .metric-grid{grid-template-columns:1fr}
   .traction-grid{grid-template-columns:1fr 1fr}
   .invest-card.featured::before{font-size:.55rem}
@@ -1389,37 +1392,8 @@ table td,table th{white-space:nowrap}
     </div>
   </div>
 
-  <!-- HOME VIDEO SHOWCASE -->
-  <div style="padding:80px 48px;border-top:1px solid var(--border);background:var(--bg2)" id="videoSection">
-    <div style="text-align:center;margin-bottom:48px">
-      <p class="section-eyebrow"><span class="lang-en">Watch ZENTO</span><span class="lang-uz">ZENTO ni Ko'ring</span></p>
-      <h2 class="section-h2 grad-text" style="display:inline-block"><span class="lang-en">See the Future<br>We Are Building</span><span class="lang-uz">Biz Qurayotgan<br>Kelajakni Ko'ring</span></h2>
-    </div>
-    <div class="vid-grid">
-      <!-- Main feature video -->
-      <div class="yt-wrap" onclick="loadYT(this,'iJUN-5RqAnQ')" style="border-radius:20px;min-height:320px">
-        <img src="https://img.youtube.com/vi/iJUN-5RqAnQ/maxresdefault.jpg" alt="ZENTO Overview"
-          onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=85&fit=crop'">
-        <div class="yt-play"><div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        <span class="yt-label">ZENTO ECOSYSTEM OVERVIEW</span>
-      </div>
-      <!-- Secondary videos stacked -->
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div class="yt-wrap" onclick="loadYT(this,'a9__D53WsMs')" style="border-radius:16px;flex:1">
-          <img src="https://img.youtube.com/vi/a9__D53WsMs/maxresdefault.jpg" alt="AI Demo"
-            onerror="this.src='https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=80&fit=crop'">
-          <div class="yt-play"><div class="yt-play-btn" style="width:52px;height:52px"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-          <span class="yt-label">ZENTO AI — DEMO</span>
-        </div>
-        <div class="yt-wrap" onclick="loadYT(this,'jQdELFl7We8')" style="border-radius:16px;flex:1">
-          <img src="https://img.youtube.com/vi/jQdELFl7We8/maxresdefault.jpg" alt="Vision Tech"
-            onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop'">
-          <div class="yt-play"><div class="yt-play-btn" style="width:52px;height:52px"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-          <span class="yt-label">VISION SYSTEMS</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- HOME VIDEO SHOWCASE: temporarily removed until real ZENTO footage is available -->
+
 
   <!-- MISSION -->
   <div style="padding:100px 48px;position:relative;overflow:hidden">
@@ -1564,19 +1538,7 @@ table td,table th{white-space:nowrap}
     </div>
   </div>
 
-    <!-- HOW IT WORKS VIDEO -->
-    <div style="margin-top:72px" class="reveal">
-      <div style="text-align:center;margin-bottom:36px">
-        <p class="section-eyebrow"><span class="lang-en">Platform Walkthrough</span><span class="lang-uz">Platforma Ko'rsatmasi</span></p>
-        <h2 class="section-h2" style="font-size:2rem"><span class="lang-en">See How ZENTO<br>Marketplace Works</span><span class="lang-uz">ZENTO Marketplace<br>Qanday Ishlashini Ko'ring</span></h2>
-      </div>
-      <div class="yt-wrap" onclick="loadYT(this,'7ynmHNVX4Do')" style="max-width:800px;margin:0 auto">
-        <img src="https://img.youtube.com/vi/7ynmHNVX4Do/maxresdefault.jpg" alt="Marketplace Demo"
-          onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=85&fit=crop'">
-        <div class="yt-play"><div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        <span class="yt-label">HOW ZENTO MARKETPLACE WORKS</span>
-      </div>
-    </div>
+    <!-- HOW IT WORKS VIDEO: temporarily removed until real ZENTO footage is available -->
 
     <!-- HORIZONTAL PRODUCT STRIP (more products) -->
     <div style="margin-top:72px" class="reveal">
@@ -1712,18 +1674,7 @@ table td,table th{white-space:nowrap}
       </div>
     </div>
 
-    <!-- VIDEO -->
-    <div style="margin-top:72px" class="reveal">
-      <p class="section-eyebrow"><span class="lang-en">Technology In Action</span><span class="lang-uz">Amalda Texnologiya</span></p>
-      <h2 class="section-h2" style="font-size:2rem;margin-bottom:1.5rem"><span class="lang-en">AI Vision at<br>Its Finest</span><span class="lang-uz">AI Vision<br>Eng Yuqori Darajada</span></h2>
-      <div class="yt-wrap" onclick="loadYT(this,'tF4DML7FIWk')" style="max-width:800px">
-        <img src="https://img.youtube.com/vi/tF4DML7FIWk/maxresdefault.jpg" alt="AI Vision Technology" onerror="this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&fit=crop'">
-        <div class="yt-play">
-          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-        </div>
-        <div class="yt-label">AI-Powered Vision Systems</div>
-      </div>
-    </div>
+    <!-- VIDEO: temporarily removed until real ZENTO footage is available -->
 
     <!-- CAMERA SPECS TABLE -->
     <div style="margin-top:72px" class="reveal">
@@ -1930,7 +1881,6 @@ table td,table th{white-space:nowrap}
         </div>
       </div>
     </div>
-  </div>
 
     <!-- AI VIDEO + STATS -->
     <div class="two-col" style="padding-top:72px;padding-bottom:0">
@@ -1950,10 +1900,11 @@ table td,table th{white-space:nowrap}
         </div>
       </div>
       <div class="reveal-right">
-        <div class="yt-wrap" onclick="loadYT(this,'BRRolKTlF6Q')">
-          <img src="https://img.youtube.com/vi/BRRolKTlF6Q/maxresdefault.jpg" alt="AI Demo" onerror="this.src='https://img.youtube.com/vi/BRRolKTlF6Q/hqdefault.jpg'">
-          <div class="yt-play"><div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-          <span class="yt-label">AI CAPABILITIES DEMO</span>
+        <!-- Video temporarily removed until real ZENTO AI footage is available -->
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:320px;text-align:center">
+          <div class="icon-box icon-box-green" style="width:64px;height:64px"><svg class="icon icon-lg" style="color:var(--green)" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <span class="status-badge status-building"><span class="status-dot"></span><span class="lang-en">DEMO VIDEO COMING SOON</span><span class="lang-uz">DEMO VIDEO TEZDA</span></span>
+          <p style="color:var(--muted);font-size:.85rem;max-width:280px;font-family:'Inter',sans-serif"><span class="lang-en">We're preparing a real walkthrough of ZENTO AI in action.</span><span class="lang-uz">ZENTO AI ishlashi haqida haqiqiy videoni tayyorlamoqdamiz.</span></p>
         </div>
       </div>
     </div>
@@ -2003,7 +1954,7 @@ table td,table th{white-space:nowrap}
     <div style="margin-top:72px" class="reveal">
       <p class="section-eyebrow"><span class="lang-en">Use Cases</span><span class="lang-uz">Foydalanish Holatlari</span></p>
       <h2 class="section-h2" style="font-size:2rem"><span class="lang-en">AI Across Every Division</span><span class="lang-uz">Har Bir Bo'limda AI</span></h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px">
+      <div class="uc-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px">
         <div style="display:flex;gap:16px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;align-items:flex-start;transition:all .3s" onmouseover="this.style.borderColor='rgba(15,184,122,.3)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="width:44px;height:44px;border-radius:10px;background:rgba(15,184,122,.1);border:1px solid rgba(15,184,122,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
             <svg class="icon" style="color:var(--green)" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
