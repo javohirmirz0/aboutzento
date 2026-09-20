@@ -712,6 +712,10 @@ body.hero-ready .hero-anim{animation:heroIn .9s cubic-bezier(.16,1,.3,1) forward
 .evidence-grid .asset-placeholder:nth-child(1){grid-row:1/4;min-height:420px}
 .evidence-grid .asset-placeholder:nth-child(2),.evidence-grid .asset-placeholder:nth-child(3),.evidence-grid .asset-placeholder:nth-child(4){min-height:128px}
 .evidence-module-tag{position:relative;z-index:1;font-size:.62rem;letter-spacing:1.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:4px}
+.asset-placeholder.filled{padding:20px}
+.asset-placeholder.filled img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(1.1) brightness(.62)}
+.asset-placeholder.filled .evidence-module-tag,.asset-placeholder.filled p{position:relative;z-index:2;color:rgba(255,255,255,.92)}
+.asset-placeholder.filled .evidence-module-tag{color:var(--green)}
 @media(max-width:780px){.evidence-grid{grid-template-columns:1fr}.evidence-grid .asset-placeholder:nth-child(1){grid-row:auto;min-height:220px}}
 
 /* Ecosystem diagram — hero-scale system map (Technology page) */
@@ -1222,6 +1226,60 @@ table td,table th{white-space:nowrap}
 /* ── PREMIUM PAGE TRANSITIONS (refined) ── */
 .page.active{animation:pageEnter .55s cubic-bezier(.16,1,.3,1) both}
 @keyframes pageEnter{0%{opacity:0;transform:translateY(18px) scale(.99)}100%{opacity:1;transform:translateY(0) scale(1)}}
+
+/* ── WST REAL-ASSET VISUAL SYSTEM (added) ── */
+.hero-split{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative;z-index:1}
+@media(max-width:900px){.hero-split{grid-template-columns:1fr}}
+.wst-hero-visual{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);aspect-ratio:16/10.5;isolation:isolate}
+.wst-hero-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) brightness(1.02)}
+.wst-hero-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,5,7,.55));pointer-events:none}
+.wst-hero-visual .whv-tag{position:absolute;left:16px;bottom:14px;z-index:2;font-size:.68rem;letter-spacing:1.5px;
+  color:rgba(255,255,255,.85);background:rgba(5,5,7,.55);border:1px solid rgba(255,255,255,.14);
+  padding:5px 10px;border-radius:20px;backdrop-filter:blur(6px)}
+@media(max-width:900px){.wst-hero-visual{aspect-ratio:16/11;margin-top:8px}}
+
+/* Brand ecosystem strip */
+.brand-strip{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.brand-chip{flex:1 1 150px;min-width:130px;max-width:190px;height:74px;border-radius:12px;background:#fff;
+  display:flex;align-items:center;justify-content:center;padding:14px 18px;border:1px solid var(--border);
+  transition:transform .3s ease,box-shadow .3s ease}
+.brand-chip:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.brand-chip img,.brand-chip svg{max-width:100%;max-height:100%;object-fit:contain}
+.brand-chip.dark{background:#0B1220}
+.brand-chip.featured{background:linear-gradient(150deg,rgba(15,184,122,.14),rgba(10,111,232,.08));border-color:rgba(15,184,122,.4)}
+
+/* UNV authorized-distributor feature block */
+.unv-feature{margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:22px;
+  padding:44px;position:relative;overflow:hidden}
+.unv-feature::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(15,184,122,.12),transparent 60%);pointer-events:none}
+.unv-feature-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center;position:relative;z-index:1}
+@media(max-width:860px){.unv-feature-grid{grid-template-columns:1fr}}
+.unv-logo-plate{background:#fff;border-radius:16px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px}
+.unv-logo-plate img{max-width:180px;width:100%}
+.unv-cat-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.unv-cat-list span{font-size:.74rem;font-weight:600;letter-spacing:.3px;color:var(--text);
+  background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:7px 14px}
+
+/* Photo showcase strip (category / product photography) */
+.ps-card .ps-label span{display:block}
+.ps-card.tiandy-note::after{content:'Tiandy';position:absolute;top:10px;right:10px;font-size:.6rem;letter-spacing:1px;
+  color:rgba(255,255,255,.65);background:rgba(5,5,7,.5);padding:3px 8px;border-radius:10px}
+
+/* camShowcase (revived component) container sizing for WST */
+#camShowcase.wst-showcase{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:14px;margin-top:28px}
+@media(max-width:760px){#camShowcase.wst-showcase{grid-template-columns:1fr 1fr}}
+
+/* Field / project fact card */
+.field-fact{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--border);margin-top:28px;min-height:340px;display:flex;align-items:flex-end}
+.field-fact img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.55)}
+.field-fact::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,5,7,.92) 10%,rgba(5,5,7,.35) 60%,rgba(5,5,7,.15));z-index:1}
+.field-fact-body{position:relative;z-index:2;padding:36px 40px;width:100%}
+.field-fact-stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:18px}
+.field-fact-stats div{min-width:110px}
+.field-fact-stats .ff-num{font-size:1.7rem;font-weight:800;color:var(--green)}
+.field-fact-stats .ff-lbl{font-size:.72rem;color:var(--muted);margin-top:2px;letter-spacing:.3px}
+.field-fact-note{margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.55);font-style:italic}
 </style>
 </head>
 <body data-lang="en">
@@ -1482,6 +1540,27 @@ table td,table th{white-space:nowrap}
       </div>
     </div>
 
+    <!-- WST HOME VISUAL MOMENT (real hardware imagery) -->
+    <div style="margin-top:64px" class="reveal">
+      <div class="two-col" style="padding:0">
+        <div class="wst-hero-visual reveal-left" style="aspect-ratio:16/11">
+          <img src="assets/wst/hero-security.webp" alt="WST security control room with camera, NVR and access hardware" loading="lazy">
+          <span class="whv-tag"><span class="lang-en">WST / SECURITY TECHNOLOGY</span><span class="lang-uz">WST / XAVFSIZLIK TEXNOLOGIYASI</span><span class="lang-zh">WST / 安防技术</span></span>
+        </div>
+        <div class="reveal-right">
+          <p class="section-eyebrow"><span class="lang-en">Businesses / WST</span><span class="lang-uz">Bizneslar / WST</span><span class="lang-zh">业务板块 / WST</span></p>
+          <h2 class="section-h2" style="font-size:1.9rem;margin-bottom:14px"><span class="lang-en">Real Security Hardware.<br>Real Field Experience.</span><span class="lang-uz">Real Xavfsizlik Texnikasi.<br>Real Amaliy Tajriba.</span><span class="lang-zh">真实的安防硬件。<br>真实的现场经验。</span></h2>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+            <div class="tag tag-green" style="width:fit-content"><span class="lang-en">UNV / Uniview Distribution</span><span class="lang-uz">UNV / Uniview Distributsiyasi</span><span class="lang-zh">UNV / 宇视分销</span></div>
+            <div class="tag tag-blue" style="width:fit-content"><span class="lang-en">Surveillance Systems</span><span class="lang-uz">Kuzatuv Tizimlari</span><span class="lang-zh">监控系统</span></div>
+            <div class="tag" style="width:fit-content"><span class="lang-en">Network Infrastructure</span><span class="lang-uz">Tarmoq Infratuzilmasi</span><span class="lang-zh">网络基础设施</span></div>
+            <div class="tag" style="width:fit-content"><span class="lang-en">Field Experience Since Childhood</span><span class="lang-uz">Bolalikdan Amaliy Tajriba</span><span class="lang-zh">自幼积累的现场经验</span></div>
+          </div>
+          <button class="btn-g" onclick="navigate('wst')"><span class="lang-en">Explore WST →</span><span class="lang-uz">WST'ni Ko'ring →</span><span class="lang-zh">了解 WST →</span></button>
+        </div>
+      </div>
+    </div>
+
     <!-- CH 04 — SHENZHEN (WOW MOMENT: corridor infrastructure diagram) -->
     <div class="chapter-wrap" style="margin-top:120px">
       <div class="chapter-num-bg">04</div>
@@ -1587,7 +1666,7 @@ table td,table th{white-space:nowrap}
         <h2 class="section-h2 text-reveal" style="font-size:1.9rem;margin-bottom:8px"><span class="lang-en">Documented As We Go</span><span class="lang-uz">Jarayon Davomida Hujjatlashtirilmoqda</span><span class="lang-zh">边推进边记录</span></h2>
         <p class="section-body" style="max-width:600px"><span class="lang-en">These will become full visual story modules once the footage comes in from the field — for now, each is reserved and labeled.</span><span class="lang-uz">Bular joydan material kelgach to'liq vizual hikoya modullariga aylanadi — hozircha har biri belgilangan va nomlangan.</span><span class="lang-zh">待现场素材陆续到位后，这些将扩展为完整的影像故事模块——目前先预留并标注位置。</span></p>
         <div class="evidence-grid">
-          <div class="asset-placeholder reveal"><span class="evidence-module-tag">MODULE 01</span><div class="ap-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p><span class="lang-en">WST Project Work</span><span class="lang-uz">WST Loyiha Ishi</span><span class="lang-zh">WST 项目工作</span></p></div>
+          <div class="asset-placeholder filled reveal"><img src="assets/wst/hero-security.webp" alt="WST security technology hardware" loading="lazy"><span class="evidence-module-tag">MODULE 01 · <span class="lang-en">LIVE</span><span class="lang-uz">FAOL</span><span class="lang-zh">已上线</span></span><p><span class="lang-en">WST Security Technology</span><span class="lang-uz">WST Xavfsizlik Texnologiyasi</span><span class="lang-zh">WST 安防技术</span></p></div>
           <div class="asset-placeholder reveal"><span class="evidence-module-tag">MODULE 02</span><div class="ap-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p><span class="lang-en">Shenzhen Operating Base</span><span class="lang-uz">Shenzhen Operatsion Bazasi</span><span class="lang-zh">深圳运营基地</span></p></div>
           <div class="asset-placeholder reveal"><span class="evidence-module-tag">MODULE 03</span><div class="ap-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p><span class="lang-en">Supplier / Factory Sourcing</span><span class="lang-uz">Yetkazib Beruvchi / Zavod Sourcing</span><span class="lang-zh">供应商 / 工厂寻源</span></p></div>
           <div class="asset-placeholder reveal"><span class="evidence-module-tag">MODULE 04</span><div class="ap-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p><span class="lang-en">TENON Product Development</span><span class="lang-uz">TENON Mahsulot Rivojlanishi</span><span class="lang-zh">TENON 产品开发</span></p></div>
@@ -1645,6 +1724,47 @@ table td,table th{white-space:nowrap}
           <span class="tag tag-green">Yandex Market</span>
           <span class="tag tag-green">Uzum Market</span>
         </div>
+
+        <!-- PLATFORM EXPERIENCE TIMELINE -->
+        <p style="font-size:.72rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-top:40px;font-family:'Space Grotesk',sans-serif"><span class="lang-en">Platform Experience Timeline</span><span class="lang-uz">Platforma Tajribasi Vaqt Chizig'i</span><span class="lang-zh">平台经验发展历程</span></p>
+        <div class="vms-flow">
+          <div class="vms-step" style="border-color:rgba(15,184,122,.25)">
+            <div style="display:flex;justify-content:center;margin-bottom:.75rem"><svg class="icon icon-lg" style="color:var(--green)" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <h4>Wildberries</h4>
+            <p class="lang-en">Large-scale catalogue & seller operations</p><p class="lang-uz">Katta ko'lamdagi katalog va sotuvchi faoliyati</p><p class="lang-zh">大规模目录与卖家运营</p>
+          </div>
+          <div class="vms-arrow">→</div>
+          <div class="vms-step">
+            <div style="display:flex;justify-content:center;margin-bottom:.75rem"><svg class="icon icon-lg" style="color:var(--muted)" viewBox="0 0 24 24"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <h4>Ozon</h4>
+            <p class="lang-en">Marketplace diversification & fulfilment</p><p class="lang-uz">Marketplace diversifikatsiyasi va fulfillment</p><p class="lang-zh">平台多元化与订单履约</p>
+          </div>
+          <div class="vms-arrow">→</div>
+          <div class="vms-step" style="border-color:rgba(10,111,232,.25)">
+            <div style="display:flex;justify-content:center;margin-bottom:.75rem"><svg class="icon icon-lg" style="color:#4D93F2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <h4>Yandex Market</h4>
+            <p class="lang-en">Platform integration & analytics</p><p class="lang-uz">Platforma integratsiyasi va analitika</p><p class="lang-zh">平台集成与数据分析</p>
+          </div>
+          <div class="vms-arrow">→</div>
+          <div class="vms-step">
+            <div style="display:flex;justify-content:center;margin-bottom:.75rem"><svg class="icon icon-lg" style="color:var(--muted)" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h4>Uzum Market</h4>
+            <p class="lang-en">Regional & local commerce operations</p><p class="lang-uz">Mintaqaviy va mahalliy savdo faoliyati</p><p class="lang-zh">区域与本地电商运营</p>
+          </div>
+          <div class="vms-arrow">→</div>
+          <div class="vms-step" style="border-color:rgba(15,184,122,.25)">
+            <div style="display:flex;justify-content:center;margin-bottom:.75rem"><svg class="icon icon-lg" style="color:var(--green)" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+            <h4><span class="lang-en">Operating Knowledge</span><span class="lang-uz">Operatsion Bilim</span><span class="lang-zh">运营知识积累</span></h4>
+            <p class="lang-en">~3 years of combined operating experience</p><p class="lang-uz">~3 yillik birlashgan operatsion tajriba</p><p class="lang-zh">约 3 年综合运营经验</p>
+          </div>
+          <div class="vms-arrow">→</div>
+          <div class="vms-step" style="border-color:rgba(10,111,232,.25)">
+            <div style="display:flex;justify-content:center;margin-bottom:.75rem"><svg class="icon icon-lg" style="color:#4D93F2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <h4>ZentoMarket</h4>
+            <p class="lang-en">Own infrastructure, built from that experience</p><p class="lang-uz">Shu tajriba asosida qurilgan o'z infratuzilmasi</p><p class="lang-zh">基于这些经验打造的自有基础设施</p>
+          </div>
+        </div>
+
         <p class="pull-statement" style="margin-top:32px;font-size:1.05rem"><span class="lang-en">Over roughly three years of continuous Wildberries operations, ZENTO's Uzbekistan team has developed into <span class="hl">one of the more substantial marketplace operating teams</span> in its market — managing both its own commerce and marketplace operations for other businesses.</span><span class="lang-uz">Taxminan uch yillik uzluksiz Wildberries faoliyati davomida ZENTO'ning Uzbekiston jamoasi o'z bozorida <span class="hl">eng yirik marketplace operatsion jamoalaridan biriga</span> aylandi — ham o'z savdosini, ham boshqa bizneslar uchun marketplace faoliyatini boshqaradi.</span><span class="lang-zh">经过大约三年持续的 Wildberries 运营，ZENTO 的乌兹别克斯坦团队已发展成为当地市场上<span class="hl">规模较大的电商平台运营团队之一</span>——既管理自身电商业务，也为其他企业提供平台运营服务。</span></p>
       </div>
     </div>
@@ -1820,13 +1940,22 @@ table td,table th{white-space:nowrap}
     <div class="page-hero-bg motif-wst">
       <div class="orb" style="width:800px;height:800px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(15,184,122,.16),rgba(10,111,232,.1),transparent 70%)"></div>
     </div>
-    <p class="ph-num">BUSINESSES / SMART TECHNOLOGY</p>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:.5rem">
-      <h1 class="ph-title" style="margin:0">WST</h1>
-      <span class="status-badge status-live"><span class="status-dot"></span><span class="lang-en">OPERATING</span><span class="lang-uz">FAOLIYATDA</span><span class="lang-zh">运营中</span></span>
+    <div class="hero-split">
+      <div>
+        <p class="ph-num"><span class="lang-en">BUSINESSES / SMART SECURITY TECHNOLOGY</span><span class="lang-uz">BIZNESLAR / AQLLI XAVFSIZLIK TEXNOLOGIYASI</span><span class="lang-zh">业务板块 / 智能安防技术</span></p>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:.5rem">
+          <h1 class="ph-title" style="margin:0">WST</h1>
+          <span class="status-badge status-live"><span class="status-dot"></span><span class="lang-en">OPERATING</span><span class="lang-uz">FAOLIYATDA</span><span class="lang-zh">运营中</span></span>
+        </div>
+        <p class="pull-statement" style="margin:.25rem 0 1rem;font-size:1.15rem"><span class="lang-en">Security technology built from years of hands-on field experience.</span><span class="lang-uz">Yillar davomidagi amaliy tajribadan qurilgan xavfsizlik texnologiyasi.</span><span class="lang-zh">源自多年一线实操经验的安防技术。</span></p>
+        <p class="ph-desc"><span class="lang-en">World Security Technology — ZENTO's security and smart-technology business: IP cameras, video infrastructure and network systems, sold and installed across Uzbekistan, backed by long-term hands-on experience — not a startup pivot.</span><span class="lang-uz">World Security Technology — ZENTO'ning xavfsizlik va aqlli texnologiya biznesi: IP kamera, video infratuzilma va tarmoq tizimlari, Uzbekiston bo'ylab sotiladi va o'rnatiladi, uzoq muddatli amaliy tajriba bilan qo'llab-quvvatlanadi — startup pivoti emas.</span><span class="lang-zh">World Security Technology（WST）—— ZENTO 旗下安防与智能技术业务：网络摄像机、视频基础设施与网络系统，在乌兹别克斯坦全境销售与安装，依托长期一线实操经验——而非临时转型。</span></p>
+        <button class="btn-g" onclick="openLeadForm('enterprise')" style="margin-top:1.5rem"><span class="lang-en">Talk to WST →</span><span class="lang-uz">WST bilan gaplashing →</span><span class="lang-zh">联系 WST →</span></button>
+      </div>
+      <div class="wst-hero-visual reveal-right">
+        <img src="assets/wst/hero-security.webp" alt="Security control room with camera, NVR and access-control hardware" loading="eager">
+        <span class="whv-tag"><span class="lang-en">CCTV · NVR · ACCESS · NETWORK</span><span class="lang-uz">CCTV · NVR · KIRISH · TARMOQ</span><span class="lang-zh">监控 · 录像机 · 门禁 · 网络</span></span>
+      </div>
     </div>
-    <p class="ph-desc"><span class="lang-en">World Security Technology — ZENTO's security and smart-technology business: cameras, video systems and network infrastructure, built from long-term hands-on experience, not a startup pivot.</span><span class="lang-uz">World Security Technology — ZENTO'ning xavfsizlik va aqlli texnologiya biznesi: kamera, video tizim va tarmoq infratuzilmasi, uzoq muddatli amaliy tajribadan qurilgan, startup pivoti emas.</span><span class="lang-zh">World Security Technology（WST）—— ZENTO 旗下安防与智能技术业务：摄像头、视频系统与网络基础设施，源自长期实操经验，而非临时转型。</span></p>
-    <button class="btn-g" onclick="openLeadForm('enterprise')" style="margin-top:1.5rem"><span class="lang-en">Talk to WST →</span><span class="lang-uz">WST bilan gaplashing →</span><span class="lang-zh">联系 WST →</span></button>
   </div>
   <div class="page-content">
 
@@ -1837,23 +1966,60 @@ table td,table th{white-space:nowrap}
       <p class="section-body" style="max-width:700px"><span class="lang-en">Javohir's family has long-term experience in the security technology and CCTV industry in Uzbekistan. He grew up around this business and later worked in it directly — communicating with Chinese manufacturers and suppliers, handling cameras, NVRs and PoE/network equipment, and taking part in tenders and project work. That experience is what WST is built on, and it is what led to ZENTO's wider direction.</span><span class="lang-uz">Javohirning oilasi Uzbekistonda xavfsizlik texnologiyasi va CCTV sohasida uzoq muddatli tajribaga ega. U shu biznes muhitida o'sgan va keyinchalik unda bevosita ishlagan — xitoylik ishlab chiqaruvchi va yetkazib beruvchilar bilan aloqa, kamera, NVR va PoE/tarmoq uskunalari bilan ishlash, tender va loyiha ishlarida qatnashish. WST aynan shu tajriba asosida qurilgan va bu ZENTO'ning kengroq yo'nalishiga olib keldi.</span><span class="lang-zh">Javohir 的家族在乌兹别克斯坦安防技术与闭路电视行业拥有长期经验。他在这一行业环境中成长，后直接参与经营——与中国制造商和供应商沟通、处理摄像头、硬盘录像机及 PoE/网络设备，并参与招投标与项目工作。WST 正是建立在这段经验之上，也正是这段经验促成了 ZENTO 更广阔的发展方向。</span></p>
     </div>
 
-    <!-- WHAT WE WORK WITH -->
+    <!-- TECHNOLOGY ECOSYSTEM (multi-brand strip, matches WST's own public positioning) -->
     <div style="margin-top:64px" class="reveal">
-      <p class="section-eyebrow"><span class="lang-en">What We Work With</span><span class="lang-uz">Nima Bilan Ishlaymiz</span><span class="lang-zh">我们的业务范围</span></p>
-      <h2 class="section-h2" style="font-size:1.8rem;margin-bottom:24px"><span class="lang-en">Capabilities</span><span class="lang-uz">Imkoniyatlar</span><span class="lang-zh">能力范围</span></h2>
-      <div class="four-col">
-        <div class="card reveal"><div class="icon-box icon-box-green"><svg class="icon" style="color:var(--green)" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div><h4><span class="lang-en">IP Cameras & CCTV</span><span class="lang-uz">IP Kamera va CCTV</span><span class="lang-zh">网络摄像头与闭路电视</span></h4><p style="color:var(--muted);font-size:.8rem;line-height:1.5;font-family:'Inter',sans-serif"><span class="lang-en">Selection, supply and installation of video surveillance systems</span><span class="lang-uz">Video kuzatuv tizimlarini tanlash, yetkazib berish va o'rnatish</span><span class="lang-zh">视频监控系统的选型、供货与安装</span></p></div>
-        <div class="card reveal"><div class="icon-box"><svg class="icon" style="color:var(--muted)" viewBox="0 0 24 24"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div><h4><span class="lang-en">NVR & Network Infrastructure</span><span class="lang-uz">NVR va Tarmoq Infratuzilmasi</span><span class="lang-zh">硬盘录像机与网络基础设施</span></h4><p style="color:var(--muted);font-size:.8rem;line-height:1.5;font-family:'Inter',sans-serif"><span class="lang-en">Recording systems, PoE switches and network setup for security deployments</span><span class="lang-uz">Yozib olish tizimlari, PoE svitchlar va xavfsizlik tizimlari uchun tarmoq sozlash</span><span class="lang-zh">安防部署所需的录像系统、PoE 交换机与网络配置</span></p></div>
-        <div class="card reveal"><div class="icon-box icon-box-blue"><svg class="icon" style="color:#4D93F2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h4><span class="lang-en">Tenders & Project Work</span><span class="lang-uz">Tender va Loyiha Ishlari</span><span class="lang-zh">招投标与项目工作</span></h4><p style="color:var(--muted);font-size:.8rem;line-height:1.5;font-family:'Inter',sans-serif"><span class="lang-en">Direct experience with government and commercial security tenders</span><span class="lang-uz">Davlat va tijorat xavfsizlik tenderlarida bevosita tajriba</span><span class="lang-zh">在政府与商业安防招投标方面的直接经验</span></p></div>
-        <div class="card reveal"><div class="icon-box icon-box-green"><svg class="icon" style="color:var(--green)" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4><span class="lang-en">Distribution & Sales</span><span class="lang-uz">Distributsiya va Sotuv</span><span class="lang-zh">分销与销售</span></h4><p style="color:var(--muted);font-size:.8rem;line-height:1.5;font-family:'Inter',sans-serif"><span class="lang-en">Supplying security hardware to businesses and integrators in Uzbekistan</span><span class="lang-uz">Uzbekistondagi biznes va integratorlarga xavfsizlik hardware'ini yetkazib berish</span><span class="lang-zh">向乌兹别克斯坦的企业与系统集成商供应安防硬件</span></p></div>
+      <p class="section-eyebrow"><span class="lang-en">Technology Ecosystem</span><span class="lang-uz">Texnologik Ekotizim</span><span class="lang-zh">技术生态</span></p>
+      <h2 class="section-h2" style="font-size:1.8rem;margin-bottom:8px"><span class="lang-en">WST Integrates the Right Technology Into One System</span><span class="lang-uz">WST To'g'ri Texnologiyalarni Bitta Tizimga Birlashtiradi</span><span class="lang-zh">WST 将合适的技术整合为一个统一系统</span></h2>
+      <p class="section-body" style="max-width:680px"><span class="lang-en">WST is a systems integrator, not a single-brand reseller. It selects compatible hardware for each project from a confirmed set of manufacturer brands, and remains responsible for the final system.</span><span class="lang-uz">WST bitta brendni sotuvchi emas, tizim integratori. Har bir loyiha uchun tasdiqlangan ishlab chiqaruvchi brendlar to'plamidan mos hardware'ni tanlaydi va yakuniy tizim uchun javobgar bo'lib qoladi.</span><span class="lang-zh">WST 是系统集成商，而非单一品牌代理商。WST 会为每个项目从一组确认使用的制造商品牌中挑选兼容硬件，并对最终系统方案负责。</span></p>
+      <div class="brand-strip">
+        <div class="brand-chip featured"><img src="assets/wst/brand-unv.svg" alt="UNV / Uniview"></div>
+        <div class="brand-chip"><img src="assets/wst/brand-tiandy.png" alt="Tiandy"></div>
+        <div class="brand-chip"><img src="assets/wst/brand-hikvision.svg" alt="Hikvision"></div>
+        <div class="brand-chip dark"><img src="assets/wst/brand-ezviz.png" alt="EZVIZ"></div>
+        <div class="brand-chip dark"><img src="assets/wst/brand-witek.png" alt="Wi-Tek"></div>
+      </div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:14px;max-width:640px;line-height:1.6"><span class="lang-en">Brands shown are confirmed directions of the WST technology ecosystem. WST remains the systems integrator and is responsible for the final solution.</span><span class="lang-uz">Ko'rsatilgan brendlar WST texnologik ekotizimining tasdiqlangan yo'nalishlaridir. WST tizim integratori bo'lib qoladi va yakuniy yechim uchun javobgardir.</span><span class="lang-zh">图示品牌均为 WST 技术生态中已确认使用的方向。WST 始终作为系统集成商，并对最终解决方案负责。</span></p>
+    </div>
+
+    <!-- UNV / UNIVIEW — AUTHORIZED DISTRIBUTION -->
+    <div class="unv-feature reveal">
+      <div class="unv-feature-grid">
+        <div>
+          <div class="unv-logo-plate"><img src="assets/wst/brand-unv.svg" alt="UNV / Uniview logo"></div>
+        </div>
+        <div>
+          <p class="section-eyebrow"><span class="lang-en">UNV / Uniview Distribution</span><span class="lang-uz">UNV / Uniview Distributsiyasi</span><span class="lang-zh">UNV / 宇视分销</span></p>
+          <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:12px;line-height:1.3"><span class="lang-en">WST is an authorized UNV / Uniview distributor in Uzbekistan.</span><span class="lang-uz">WST — O'zbekistonda UNV / Uniview'ning vakolatli distribyutori.</span><span class="lang-zh">WST 是 UNV / 宇视（Uniview）在乌兹别克斯坦的授权分销商。</span></h3>
+          <p class="section-body" style="max-width:600px"><span class="lang-en">Through this distributor relationship, WST supplies and integrates UNV hardware across the categories below, sized and specified to each project.</span><span class="lang-uz">Ushbu distribyutorlik munosabati orqali WST quyidagi kategoriyalar bo'yicha UNV hardware'ini yetkazib beradi va integratsiya qiladi, har bir loyihaga moslab.</span><span class="lang-zh">通过这一分销关系，WST 在以下类别中供应并集成 UNV 硬件，并根据每个项目进行选型与配置。</span></p>
+          <div class="unv-cat-list">
+            <span><span class="lang-en">Network Cameras</span><span class="lang-uz">Tarmoq Kameralari</span><span class="lang-zh">网络摄像机</span></span>
+            <span><span class="lang-en">PTZ Cameras</span><span class="lang-uz">PTZ Kameralar</span><span class="lang-zh">PTZ 摄像机</span></span>
+            <span><span class="lang-en">NVR</span><span class="lang-uz">NVR</span><span class="lang-zh">网络视频录像机（NVR）</span></span>
+            <span><span class="lang-en">Video Management</span><span class="lang-uz">Video Boshqaruv</span><span class="lang-zh">视频管理</span></span>
+            <span><span class="lang-en">Transmission</span><span class="lang-uz">Uzatish</span><span class="lang-zh">传输设备</span></span>
+            <span><span class="lang-en">Storage</span><span class="lang-uz">Saqlash</span><span class="lang-zh">存储</span></span>
+            <span><span class="lang-en">Access Control</span><span class="lang-uz">Kirishni Nazorat Qilish</span><span class="lang-zh">门禁</span></span>
+            <span><span class="lang-en">Video Intercom</span><span class="lang-uz">Video Domofon</span><span class="lang-zh">可视对讲</span></span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- MANUFACTURER RELATIONSHIPS -->
-    <div style="margin-top:64px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:40px" class="reveal">
-      <p class="section-eyebrow"><span class="lang-en">Manufacturer Relationships</span><span class="lang-uz">Ishlab Chiqaruvchilar Bilan Aloqa</span><span class="lang-zh">制造商合作关系</span></p>
-      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:12px"><span class="lang-en">Products From Established Manufacturers</span><span class="lang-uz">E'tirof Etilgan Ishlab Chiqaruvchilar Mahsulotlari</span><span class="lang-zh">来自知名制造商的产品</span></h3>
-      <p class="section-body" style="max-width:680px"><span class="lang-en">WST has worked directly with Chinese security-hardware manufacturers and suppliers, including sourcing and selling products from manufacturers such as Uniview and Tiandy. These are manufacturer/supplier relationships built through direct sourcing — not official partnership agreements, and we describe them accordingly.</span><span class="lang-uz">WST xitoylik xavfsizlik-hardware ishlab chiqaruvchilari va yetkazib beruvchilari bilan bevosita ishlagan, jumladan Uniview va Tiandy kabi ishlab chiqaruvchilarning mahsulotlarini sourcing qilish va sotish orqali. Bular bevosita sourcing orqali qurilgan ishlab chiqaruvchi/yetkazib beruvchi munosabatlari — rasmiy hamkorlik shartnomalari emas, va biz buni shunday tavsiflaymiz.</span><span class="lang-zh">WST 直接与中国安防硬件制造商及供应商合作，包括采购并销售宇视（Uniview）、天地伟业（Tiandy）等制造商的产品。这些是通过直接采购建立的制造商/供应商关系——并非正式合作协议，我们也如实这样描述。</span></p>
+    <!-- TECHNOLOGY / PRODUCT CATEGORIES (real photography strip) -->
+    <div style="margin-top:64px" class="reveal">
+      <p class="section-eyebrow"><span class="lang-en">Technology</span><span class="lang-uz">Texnologiya</span><span class="lang-zh">技术</span></p>
+      <h2 class="section-h2" style="font-size:1.8rem;margin-bottom:6px"><span class="lang-en">Categories WST Works With</span><span class="lang-uz">WST Ishlaydigan Kategoriyalar</span><span class="lang-zh">WST 涉及的技术类别</span></h2>
+      <p class="section-body" style="max-width:640px"><span class="lang-en">Selection, supply, installation and service — sized to the object, not sold as a fixed catalogue.</span><span class="lang-uz">Tanlash, yetkazib berish, o'rnatish va xizmat — obyektga moslab, qat'iy katalog sifatida emas.</span><span class="lang-zh">选型、供货、安装与维护服务——根据具体项目配置，而非固定目录销售。</span></p>
+      <div class="product-strip">
+        <div class="ps-card tiandy-note"><img src="assets/wst/product-cam-tiandy.webp" alt="IP bullet camera"><div class="ps-label"><span class="lang-en">IP Cameras / CCTV</span><span class="lang-uz">IP Kamera / CCTV</span><span class="lang-zh">网络摄像机 / 闭路电视</span></div></div>
+        <div class="ps-card tiandy-note"><img src="assets/wst/product-ptz-tiandy.webp" alt="PTZ security camera"><div class="ps-label"><span class="lang-en">PTZ Cameras</span><span class="lang-uz">PTZ Kameralar</span><span class="lang-zh">PTZ 摄像机</span></div></div>
+        <div class="ps-card"><img src="assets/wst/product-nvr.webp" alt="Network video recorder"><div class="ps-label"><span class="lang-en">NVR / Network</span><span class="lang-uz">NVR / Tarmoq</span><span class="lang-zh">硬盘录像机 / 网络</span></div></div>
+        <div class="ps-card"><img src="assets/wst/equip-access.webp" alt="Access control card reader"><div class="ps-label"><span class="lang-en">Access Control</span><span class="lang-uz">Kirishni Nazorat Qilish</span><span class="lang-zh">门禁系统</span></div></div>
+        <div class="ps-card"><img src="assets/wst/equip-alarm.webp" alt="Security alarm keypad"><div class="ps-label"><span class="lang-en">Security Alarm</span><span class="lang-uz">Ohranaviy Signalizatsiya</span><span class="lang-zh">安防报警</span></div></div>
+        <div class="ps-card"><img src="assets/wst/equip-fire.webp" alt="Fire alarm device"><div class="ps-label"><span class="lang-en">Fire Alarm</span><span class="lang-uz">Yong'in Signalizatsiyasi</span><span class="lang-zh">消防报警</span></div></div>
+        <div class="ps-card"><img src="assets/wst/equip-intercom.webp" alt="Video intercom system"><div class="ps-label"><span class="lang-en">Video Intercom</span><span class="lang-uz">Video Domofon</span><span class="lang-zh">可视对讲</span></div></div>
+      </div>
+      <p style="font-size:.68rem;color:var(--muted);margin-top:10px"><span class="lang-en">Category photography shown for orientation; hardware brand and model are specified per project.</span><span class="lang-uz">Kategoriya suratlari yo'naltirish uchun ko'rsatilgan; hardware brendi va modeli har bir loyiha uchun belgilanadi.</span><span class="lang-zh">品类图片仅供参考；具体硬件品牌与型号将按项目确定。</span></p>
     </div>
 
     <!-- HOW A SECURITY SYSTEM WORKS (explanatory, not proprietary claim) -->
@@ -1902,18 +2068,43 @@ table td,table th{white-space:nowrap}
       </div>
     </div>
 
+    <!-- FIELD WORK -->
+    <div style="margin-top:64px" class="reveal">
+      <p class="section-eyebrow"><span class="lang-en">Field Work</span><span class="lang-uz">Amaliy Ish</span><span class="lang-zh">现场工作</span></p>
+      <h2 class="section-h2" style="font-size:1.8rem;margin-bottom:6px"><span class="lang-en">Security Systems in Practice</span><span class="lang-uz">Amaliyotda Xavfsizlik Tizimlari</span><span class="lang-zh">实际应用中的安防系统</span></h2>
+      <div class="field-fact">
+        <img src="assets/wst/hero-security-alt.webp" alt="Security monitoring hardware" loading="lazy">
+        <div class="field-fact-body">
+          <p style="font-size:.7rem;letter-spacing:1.5px;color:var(--green);font-weight:700;text-transform:uppercase"><span class="lang-en">Confirmed Deployment</span><span class="lang-uz">Tasdiqlangan Loyiha</span><span class="lang-zh">已确认部署项目</span></p>
+          <h3 style="font-size:1.3rem;font-weight:800;margin-top:6px;max-width:520px"><span class="lang-en">Park Surveillance System — Centralized Monitoring Across a Distributed Site</span><span class="lang-uz">Bog' Kuzatuv Tizimi — Tarqoq Obyekt Bo'yicha Markazlashtirilgan Monitoring</span><span class="lang-zh">公园监控系统 —— 分布式场地的集中化监控</span></h3>
+          <div class="field-fact-stats">
+            <div><div class="ff-num">300+</div><div class="ff-lbl"><span class="lang-en">Cameras Deployed</span><span class="lang-uz">O'rnatilgan Kameralar</span><span class="lang-zh">已部署摄像头</span></div></div>
+            <div><div class="ff-num">32-ch</div><div class="ff-lbl"><span class="lang-en">NVR Infrastructure</span><span class="lang-uz">NVR Infratuzilmasi</span><span class="lang-zh">硬盘录像机架构</span></div></div>
+            <div><div class="ff-num"><span class="lang-en">AI Search</span><span class="lang-uz">AI Qidiruv</span><span class="lang-zh">AI 检索</span></div><div class="ff-lbl"><span class="lang-en">Centralized Control</span><span class="lang-uz">Markazlashtirilgan Nazorat</span><span class="lang-zh">集中控制</span></div></div>
+          </div>
+          <p class="field-fact-note"><span class="lang-en">Visual is representative security hardware, not a photo of this specific site. Additional project case studies are being prepared for publication as client confirmations come through.</span><span class="lang-uz">Rasm namunaviy xavfsizlik texnikasi, bu aniq obyektning surati emas. Qo'shimcha loyiha case-study'lari mijoz tasdig'i kelgach nashr uchun tayyorlanmoqda.</span><span class="lang-zh">图片为代表性安防设备图像，并非该项目现场照片。更多项目案例将在获得客户确认后陆续发布。</span></p>
+        </div>
+      </div>
+    </div>
+
     <!-- FUTURE: LOCAL MANUFACTURING -->
     <div style="margin-top:64px" class="reveal">
       <div class="two-col" style="padding:0">
         <div class="reveal-left">
-          <p class="section-eyebrow"><span class="lang-en">Long-Term Direction</span><span class="lang-uz">Uzoq Muddatli Yo'nalish</span><span class="lang-zh">长期方向</span></p>
+          <p class="section-eyebrow"><span class="lang-en">From Distribution to Manufacturing</span><span class="lang-uz">Distributsiyadan Ishlab Chiqarishga</span><span class="lang-zh">从分销到制造</span></p>
           <h2 class="section-h2" style="font-size:1.8rem"><span class="lang-en">Local Manufacturing</span><span class="lang-uz">Mahalliy Ishlab Chiqarish</span><span class="lang-zh">本地化生产</span></h2>
           <span class="status-badge status-future" style="margin-bottom:16px">FUTURE</span>
-          <p class="section-body"><span class="lang-en">The long-term goal is to develop and manufacture ZENTO's own security hardware in Uzbekistan — cameras, NVRs, PoE switches and related smart-technology products. This is a future direction we're working toward, not something currently operating.</span><span class="lang-uz">Uzoq muddatli maqsad — ZENTO'ning o'z xavfsizlik hardware'ini Uzbekistonda ishlab chiqarish: kamera, NVR, PoE svitch va tegishli aqlli texnologiya mahsulotlari. Bu biz intilayotgan kelajakdagi yo'nalish, hozircha faoliyat yuritayotgan narsa emas.</span><span class="lang-zh">长期目标是在乌兹别克斯坦研发并生产 ZENTO 自有的安防硬件——摄像头、硬盘录像机、PoE 交换机及相关智能技术产品。这是我们正在努力的未来方向，目前尚未投入运营。</span></p>
+          <p class="section-body"><span class="lang-en">The long-term goal is to develop and manufacture ZENTO's own security hardware in Uzbekistan — cameras, NVRs, PoE/network equipment and related fire/security systems. This is a future direction we're working toward, not something currently operating.</span><span class="lang-uz">Uzoq muddatli maqsad — ZENTO'ning o'z xavfsizlik hardware'ini Uzbekistonda ishlab chiqarish: kamera, NVR, PoE/tarmoq uskunalari va tegishli yong'in/xavfsizlik tizimlari. Bu biz intilayotgan kelajakdagi yo'nalish, hozircha faoliyat yuritayotgan narsa emas.</span><span class="lang-zh">长期目标是在乌兹别克斯坦研发并生产 ZENTO 自有的安防硬件——摄像头、硬盘录像机、PoE / 网络设备及相关消防/安防系统。这是我们正在努力的未来方向，目前尚未投入运营。</span></p>
         </div>
-        <div class="asset-placeholder reveal-right"><div class="ap-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><p><span class="lang-en">WST project / installation photo</span><span class="lang-uz">WST loyiha / montaj rasmi</span><span class="lang-zh">WST 项目 / 安装现场照片</span></p></div>
-        <!-- REAL ASSET REQUIRED: WST installation/project photo(s), camera/NVR/hardware product photos -->
+        <div class="ps-card reveal-right" style="width:100%;aspect-ratio:4/3"><img src="assets/wst/product-nvr.webp" alt="Network video recorder hardware" style="filter:saturate(1.05)"><div class="ps-label"><span class="lang-en">Hardware categories under consideration</span><span class="lang-uz">Ko'rib chiqilayotgan hardware kategoriyalari</span><span class="lang-zh">正在评估的硬件品类</span></div></div>
       </div>
+    </div>
+
+    <!-- CONNECTED TO ZENTO -->
+    <div style="margin-top:64px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px 40px" class="reveal">
+      <p class="section-eyebrow"><span class="lang-en">Connected to ZENTO</span><span class="lang-uz">ZENTO Bilan Bog'liqlik</span><span class="lang-zh">与 ZENTO 的连接</span></p>
+      <p class="section-body" style="max-width:720px"><span class="lang-en">WST's hardware sourcing runs through the same Shenzhen supplier network ZENTO uses for TENON and cross-border trade. As ZENTO's software direction (ZENTO AI / ZENTO Chat) develops, WST's project and hardware data is one of the operating businesses it is designed to eventually connect to.</span><span class="lang-uz">WST'ning hardware sourcing'i ZENTO TENON va chegaralararo savdo uchun foydalanadigan xuddi shu Shenzhen yetkazib beruvchilar tarmog'i orqali amalga oshiriladi. ZENTO'ning software yo'nalishi (ZENTO AI / ZENTO Chat) rivojlanishi bilan, WST'ning loyiha va hardware ma'lumotlari kelajakda ulanishi mo'ljallangan faoliyat yurituvchi bizneslardan biridir.</span><span class="lang-zh">WST 的硬件采购通过与 ZENTO TENON 及跨境贸易业务相同的深圳供应商网络进行。随着 ZENTO 的软件方向（ZENTO AI / ZENTO Chat）不断发展，WST 的项目与硬件数据是其未来计划连接的运营业务之一。</span></p>
+      <button class="btn-g" onclick="navigate('global')" style="margin-top:20px"><span class="lang-en">See the Global Story →</span><span class="lang-uz">Global Hikoyani Ko'ring →</span><span class="lang-zh">查看全球布局 →</span></button>
     </div>
 
   </div>
